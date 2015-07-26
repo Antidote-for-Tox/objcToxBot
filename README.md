@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/Antidote-for-Tox/objcToxBot/master.svg?style=flat)](https://travis-ci.org/Antidote-for-Tox/objcToxBot) [![Coverage Status](https://coveralls.io/repos/Antidote-for-Tox/objcToxBot/badge.svg)](https://coveralls.io/r/Antidote-for-Tox/objcToxBot)
+[![Build Status](https://img.shields.io/travis/Antidote-for-Tox/objcToxBot/master.svg?style=flat)](https://travis-ci.org/Antidote-for-Tox/objcToxBot)
 
 # objcToxBot
 
