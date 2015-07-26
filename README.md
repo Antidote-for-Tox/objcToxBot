@@ -2,7 +2,7 @@
 
 # objcToxBot
 
-[Tox](https://tox.im/) bot for iOS.
+[Tox](https://tox.chat/) bot for iOS.
 
 This bot is made for testing [objcTox](https://github.com/Antidote-for-Tox/objcTox) library and [Antidote](https://github.com/Antidote-for-Tox/Antidote). I'm not sure if it would be usable for something else.
 
