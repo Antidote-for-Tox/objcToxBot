@@ -16,7 +16,6 @@ static const NSTimeInterval kTickInterval = 1.0;
 @property (strong, nonatomic) NSMutableSet *botsSet;
 @property (strong, nonatomic) NSObject *botsLock;
 
-@property (strong, nonatomic) dispatch_queue_t queue;
 @property (strong, nonatomic) dispatch_source_t timer;
 
 @end
@@ -33,7 +32,6 @@ static const NSTimeInterval kTickInterval = 1.0;
         return nil;
     }
 
-    _queue = dispatch_queue_create("BotManager queue", NULL);
     _botsSet = [NSMutableSet new];
     _botsLock = [NSObject new];
 
@@ -57,7 +55,7 @@ static const NSTimeInterval kTickInterval = 1.0;
         return;
     }
 
-    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
 
     dispatch_source_set_timer(self.timer, dispatch_walltime(NULL, 0), kTickInterval * NSEC_PER_SEC, 0);
 

@@ -16,6 +16,7 @@
 #import "LogTask.h"
 #import "ApproveFriendRequestTask.h"
 #import "EchoTask.h"
+#import "PingTask.h"
 
 static const CGFloat kButtonWidth = 220.0;
 static const CGFloat kButtonHeight = 40.0;
@@ -24,7 +25,7 @@ static const CGFloat kButtonHeight = 40.0;
 
 @property (strong, nonatomic) UIButton *startButton;
 @property (strong, nonatomic) UIButton *stopButton;
-@property (strong, nonatomic) UIButton *addBotWithLogTaskButton;
+@property (strong, nonatomic) UIButton *addBotButton;
 
 @property (strong, nonatomic) BotManager *botManager;
 
@@ -56,11 +57,15 @@ static const CGFloat kButtonHeight = 40.0;
     [self.botManager stop];
 }
 
-- (void)addBotWithLogTaskButtonPressed
+- (void)addBotButtonPressed
 {
     Bot *bot = [Bot new];
     [bot addTask:[ApproveFriendRequestTask new]];
     [bot addTask:[EchoTask new]];
+
+    PingTask *pingTask = [PingTask new];
+    pingTask.pingTimeInterval = 10.0;
+    [bot addTask:pingTask];
 
     NSLog(@"----- %@", bot.userAddress);
 
@@ -75,8 +80,8 @@ static const CGFloat kButtonHeight = 40.0;
                                       action:@selector(startButtonPressed)];
     self.stopButton = [self buttonWithTitle:NSLocalizedString(@"Stop", @"TestViewController")
                                      action:@selector(stopButtonPressed)];
-    self.addBotWithLogTaskButton = [self buttonWithTitle:NSLocalizedString(@"Add bot with log task", @"TestViewController")
-                                                  action:@selector(addBotWithLogTaskButtonPressed)];
+    self.addBotButton = [self buttonWithTitle:NSLocalizedString(@"Add bot", @"TestViewController")
+                                       action:@selector(addBotButtonPressed)];
 }
 
 - (UIButton *)buttonWithTitle:(NSString *)title action:(SEL)action
@@ -106,7 +111,7 @@ static const CGFloat kButtonHeight = 40.0;
         make.height.equalTo(kButtonHeight);
     }];
 
-    [self.addBotWithLogTaskButton makeConstraints:^(MASConstraintMaker *make) {
+    [self.addBotButton makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.stopButton.bottom).offset(10.0);
         make.centerX.equalTo(self.view);
         make.width.equalTo(kButtonWidth);

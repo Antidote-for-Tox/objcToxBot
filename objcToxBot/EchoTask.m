@@ -69,7 +69,7 @@
                                                                       error:&error];
 
     if (! sentMessage) {
-        NSLog(@"%@ echo task error %@", self, error);
+        NSLog(@"%@ error %@", self, error);
     }
 }
 
