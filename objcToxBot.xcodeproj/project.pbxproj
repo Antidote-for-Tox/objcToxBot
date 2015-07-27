@@ -12,6 +12,9 @@
 		116626311B654B080036ABC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116626301B654B080036ABC2 /* Images.xcassets */; };
 		116626341B654B080036ABC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116626321B654B080036ABC2 /* LaunchScreen.xib */; };
 		116626401B654B080036ABC2 /* objcToxBotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166263F1B654B080036ABC2 /* objcToxBotTests.m */; };
+		11E9749C1B661177007017DF /* Bot.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749B1B661177007017DF /* Bot.m */; };
+		11E9749F1B66117D007017DF /* BotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749E1B66117D007017DF /* BotManager.m */; };
+		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
 		9FDD7B4A973D8A99FF7281D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 476C6BA23F4D549EC715CAA1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,13 @@
 		116626391B654B080036ABC2 /* objcToxBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = objcToxBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1166263E1B654B080036ABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1166263F1B654B080036ABC2 /* objcToxBotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objcToxBotTests.m; sourceTree = "<group>"; };
+		11E9749A1B661177007017DF /* Bot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bot.h; sourceTree = "<group>"; };
+		11E9749B1B661177007017DF /* Bot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bot.m; sourceTree = "<group>"; };
+		11E9749D1B66117D007017DF /* BotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotManager.h; sourceTree = "<group>"; };
+		11E9749E1B66117D007017DF /* BotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotManager.m; sourceTree = "<group>"; };
+		11E974A31B6611A0007017DF /* TaskProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskProtocol.h; sourceTree = "<group>"; };
+		11E974A51B661C5F007017DF /* TaskProtocolListeners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskProtocolListeners.h; sourceTree = "<group>"; };
+		11E974A61B661C5F007017DF /* TaskProtocolListeners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskProtocolListeners.m; sourceTree = "<group>"; };
 		476C6BA23F4D549EC715CAA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E25AAAFF82D9B4E4A868CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B8364E7887EAA12890429EA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 			children = (
 				116626271B654B080036ABC2 /* AppDelegate.h */,
 				116626281B654B080036ABC2 /* AppDelegate.m */,
+				11E974991B6606FD007017DF /* Classes */,
 				116626301B654B080036ABC2 /* Images.xcassets */,
 				116626321B654B080036ABC2 /* LaunchScreen.xib */,
 				116626231B654B080036ABC2 /* Supporting Files */,
@@ -116,6 +127,28 @@
 				1166263E1B654B080036ABC2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11E974991B6606FD007017DF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11E9749A1B661177007017DF /* Bot.h */,
+				11E9749B1B661177007017DF /* Bot.m */,
+				11E9749D1B66117D007017DF /* BotManager.h */,
+				11E9749E1B66117D007017DF /* BotManager.m */,
+				11E974A31B6611A0007017DF /* TaskProtocol.h */,
+				11E974A51B661C5F007017DF /* TaskProtocolListeners.h */,
+				11E974A61B661C5F007017DF /* TaskProtocolListeners.m */,
+				11E974A41B661C35007017DF /* Tasks */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		11E974A41B661C35007017DF /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tasks;
 			sourceTree = "<group>";
 		};
 		8FF0881BDF0A41E80852588F /* Frameworks */ = {
@@ -269,8 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E9749C1B661177007017DF /* Bot.m in Sources */,
 				116626291B654B080036ABC2 /* AppDelegate.m in Sources */,
+				11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */,
 				116626261B654B080036ABC2 /* main.m in Sources */,
+				11E9749F1B66117D007017DF /* BotManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
