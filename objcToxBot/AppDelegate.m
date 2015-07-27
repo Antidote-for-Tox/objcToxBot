@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TestViewController.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +25,15 @@
     self.window.rootViewController = [TestViewController new];
     [self.window makeKeyAndVisible];
 
+    [self configureLogging];
+
     return YES;
+}
+
+- (void)configureLogging
+{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
