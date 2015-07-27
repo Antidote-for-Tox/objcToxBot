@@ -18,6 +18,7 @@
 		11E366451B66B57500E7E8D2 /* PingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366441B66B57500E7E8D2 /* PingTask.m */; };
 		11E366481B66BAE600E7E8D2 /* CreateBotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366471B66BAE600E7E8D2 /* CreateBotViewController.m */; };
 		11E3664B1B66BB9100E7E8D2 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3664A1B66BB9100E7E8D2 /* StatsViewController.m */; };
+		11E3664E1B66BDA900E7E8D2 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3664D1B66BDA900E7E8D2 /* AppContext.m */; };
 		11E9749C1B661177007017DF /* Bot.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749B1B661177007017DF /* Bot.m */; };
 		11E9749F1B66117D007017DF /* BotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749E1B66117D007017DF /* BotManager.m */; };
 		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
@@ -57,6 +58,9 @@
 		11E366471B66BAE600E7E8D2 /* CreateBotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateBotViewController.m; sourceTree = "<group>"; };
 		11E366491B66BB9100E7E8D2 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		11E3664A1B66BB9100E7E8D2 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
+		11E3664C1B66BDA900E7E8D2 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
+		11E3664D1B66BDA900E7E8D2 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
+		11E3664F1B66D0B900E7E8D2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		11E9749A1B661177007017DF /* Bot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bot.h; sourceTree = "<group>"; };
 		11E9749B1B661177007017DF /* Bot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bot.m; sourceTree = "<group>"; };
 		11E9749D1B66117D007017DF /* BotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotManager.h; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			children = (
 				116626241B654B080036ABC2 /* Info.plist */,
 				116626251B654B080036ABC2 /* main.m */,
+				11E3664F1B66D0B900E7E8D2 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,6 +167,8 @@
 		11E974991B6606FD007017DF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				11E3664C1B66BDA900E7E8D2 /* AppContext.h */,
+				11E3664D1B66BDA900E7E8D2 /* AppContext.m */,
 				11E9749A1B661177007017DF /* Bot.h */,
 				11E9749B1B661177007017DF /* Bot.m */,
 				11E9749D1B66117D007017DF /* BotManager.h */,
@@ -177,12 +184,12 @@
 		11E974A41B661C35007017DF /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				11E3663A1B666D2400E7E8D2 /* LogTask.h */,
-				11E3663B1B666D2400E7E8D2 /* LogTask.m */,
 				11E3663D1B669B8500E7E8D2 /* ApproveFriendRequestTask.h */,
 				11E3663E1B669B8500E7E8D2 /* ApproveFriendRequestTask.m */,
 				11E366401B66B0B500E7E8D2 /* EchoTask.h */,
 				11E366411B66B0B500E7E8D2 /* EchoTask.m */,
+				11E3663A1B666D2400E7E8D2 /* LogTask.h */,
+				11E3663B1B666D2400E7E8D2 /* LogTask.m */,
 				11E366431B66B57500E7E8D2 /* PingTask.h */,
 				11E366441B66B57500E7E8D2 /* PingTask.m */,
 			);
@@ -345,6 +352,7 @@
 				11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */,
 				11E3664B1B66BB9100E7E8D2 /* StatsViewController.m in Sources */,
 				11E366481B66BAE600E7E8D2 /* CreateBotViewController.m in Sources */,
+				11E3664E1B66BDA900E7E8D2 /* AppContext.m in Sources */,
 				116626261B654B080036ABC2 /* main.m in Sources */,
 				11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */,
 				11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */,
@@ -469,6 +477,8 @@
 			baseConfigurationReference = B8364E7887EAA12890429EA6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/objcToxBot/PrefixHeader.pch";
 				INFOPLIST_FILE = objcToxBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,6 +490,8 @@
 			baseConfigurationReference = B2E25AAAFF82D9B4E4A868CA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/objcToxBot/PrefixHeader.pch";
 				INFOPLIST_FILE = objcToxBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

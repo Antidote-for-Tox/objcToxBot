@@ -18,14 +18,17 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    // initialize AppContext
+    [AppContext sharedContext];
+
     UITabBarController *tabBar = [UITabBarController new];
+    tabBar.tabBar.translucent = NO;
     tabBar.viewControllers = @[
         [CreateBotViewController new],
         [StatsViewController new],
