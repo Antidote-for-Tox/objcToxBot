@@ -9,14 +9,15 @@
 #import "BotManager.h"
 #import "Bot.h"
 
-@interface BotManager ()
+static const NSTimeInterval kTickInterval = 1.0;
 
-@property (assign, atomic) BOOL isRunning;
+@interface BotManager ()
 
 @property (strong, nonatomic) NSMutableSet *botsSet;
 @property (strong, nonatomic) NSObject *botsLock;
 
 @property (strong, nonatomic) dispatch_queue_t queue;
+@property (strong, nonatomic) dispatch_source_t timer;
 
 @end
 
@@ -52,25 +53,32 @@
 
 - (void)start
 {
-    if (self.isRunning) {
+    if (self.timer) {
         return;
     }
-    self.isRunning = YES;
 
-    dispatch_async(self.queue, ^{
-        while (self.isRunning) {
-            @synchronized(self.botsLock) {
-                for (Bot *bot in self.botsSet) {
-                    [bot execute];
-                }
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
+
+    dispatch_source_set_timer(self.timer, dispatch_walltime(NULL, 0), kTickInterval * NSEC_PER_SEC, 0);
+
+    __weak BotManager *weakSelf = self;
+    dispatch_source_set_event_handler(self.timer, ^{
+        @synchronized(weakSelf.botsLock) {
+            for (Bot *bot in weakSelf.botsSet) {
+                [bot execute];
             }
         }
     });
+
+    dispatch_resume(self.timer);
 }
 
 - (void)stop
 {
-    self.isRunning = NO;
+    if (self.timer) {
+        dispatch_source_cancel(self.timer);
+        self.timer = nil;
+    }
 }
 
 #pragma mark -  Private

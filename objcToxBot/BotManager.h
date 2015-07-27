@@ -12,8 +12,6 @@
 
 @interface BotManager : NSObject
 
-@property (assign, nonatomic, readonly) BOOL isRunning;
-
 - (void)addBot:(Bot *)bot;
 
 - (void)start;
