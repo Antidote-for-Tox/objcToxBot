@@ -15,6 +15,7 @@
 		11E366391B66695600E7E8D2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366381B66695600E7E8D2 /* TestViewController.m */; };
 		11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3663B1B666D2400E7E8D2 /* LogTask.m */; };
 		11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3663E1B669B8500E7E8D2 /* ApproveFriendRequestTask.m */; };
+		11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366411B66B0B500E7E8D2 /* EchoTask.m */; };
 		11E9749C1B661177007017DF /* Bot.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749B1B661177007017DF /* Bot.m */; };
 		11E9749F1B66117D007017DF /* BotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749E1B66117D007017DF /* BotManager.m */; };
 		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
@@ -48,6 +49,8 @@
 		11E3663B1B666D2400E7E8D2 /* LogTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTask.m; sourceTree = "<group>"; };
 		11E3663D1B669B8500E7E8D2 /* ApproveFriendRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApproveFriendRequestTask.h; sourceTree = "<group>"; };
 		11E3663E1B669B8500E7E8D2 /* ApproveFriendRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApproveFriendRequestTask.m; sourceTree = "<group>"; };
+		11E366401B66B0B500E7E8D2 /* EchoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EchoTask.h; sourceTree = "<group>"; };
+		11E366411B66B0B500E7E8D2 /* EchoTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoTask.m; sourceTree = "<group>"; };
 		11E9749A1B661177007017DF /* Bot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bot.h; sourceTree = "<group>"; };
 		11E9749B1B661177007017DF /* Bot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bot.m; sourceTree = "<group>"; };
 		11E9749D1B66117D007017DF /* BotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotManager.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				11E3663B1B666D2400E7E8D2 /* LogTask.m */,
 				11E3663D1B669B8500E7E8D2 /* ApproveFriendRequestTask.h */,
 				11E3663E1B669B8500E7E8D2 /* ApproveFriendRequestTask.m */,
+				11E366401B66B0B500E7E8D2 /* EchoTask.h */,
+				11E366411B66B0B500E7E8D2 /* EchoTask.m */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				116626261B654B080036ABC2 /* main.m in Sources */,
 				11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */,
 				11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */,
+				11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */,
 				11E9749F1B66117D007017DF /* BotManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

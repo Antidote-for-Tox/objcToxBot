@@ -1,23 +1,25 @@
 //
-//  ApproveFriendRequestTask.m
+//  EchoTask.m
 //  objcToxBot
 //
 //  Created by Dmytro Vorobiov on 27/07/15.
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
-#import "ApproveFriendRequestTask.h"
+#import "EchoTask.h"
 #import "OCTManager.h"
+#import "OCTMessageAbstract.h"
+#import "OCTMessageText.h"
 #import "RBQFetchedResultsController.h"
 
-@interface ApproveFriendRequestTask () <RBQFetchedResultsControllerDelegate>
+@interface EchoTask () <RBQFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) OCTManager *manager;
 @property (strong, nonatomic) RBQFetchedResultsController *controller;
 
 @end
 
-@implementation ApproveFriendRequestTask
+@implementation EchoTask
 
 #pragma mark -  TaskProtocol
 
@@ -25,7 +27,7 @@
 {
     self.manager = manager;
 
-    RBQFetchRequest *fetchRequest = [manager.objects fetchRequestForType:OCTFetchRequestTypeFriendRequest withPredicate:nil];
+    RBQFetchRequest *fetchRequest = [manager.objects fetchRequestForType:OCTFetchRequestTypeMessageAbstract withPredicate:nil];
     self.controller = [[RBQFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                              sectionNameKeyPath:nil
                                                                       cacheName:nil];
@@ -45,18 +47,29 @@
         return;
     }
 
-    OCTFriendRequest *request = [anObject RLMObject];
+    OCTMessageAbstract *message = [anObject RLMObject];
+
+    if ([message isOutgoing] || ! message.messageText) {
+        return;
+    }
 
     // workaround for deadlock in objcTox https://github.com/Antidote-for-Tox/objcTox/issues/51
-    [self performSelector:@selector(approveRequest:) withObject:request afterDelay:0];
+    [self performSelector:@selector(sendMessageBack:) withObject:message afterDelay:0];
 }
 
-- (void)approveRequest:(OCTFriendRequest *)request
+#pragma mark -  Private
+
+- (void)sendMessageBack:(OCTMessageAbstract *)message
 {
     NSError *error;
 
-    if (! [self.manager.friends approveFriendRequest:request error:&error]) {
-        NSLog(@"%@ approving request %@, error %@", self, request, error);
+    OCTMessageAbstract *sentMessage = [self.manager.chats sendMessageToChat:message.chat
+                                                                       text:message.messageText.text
+                                                                       type:message.messageText.type
+                                                                      error:&error];
+
+    if (! sentMessage) {
+        NSLog(@"%@ echo task error %@", self, error);
     }
 }
 

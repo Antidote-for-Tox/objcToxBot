@@ -15,6 +15,7 @@
 #import "Bot.h"
 #import "LogTask.h"
 #import "ApproveFriendRequestTask.h"
+#import "EchoTask.h"
 
 static const CGFloat kButtonWidth = 220.0;
 static const CGFloat kButtonHeight = 40.0;
@@ -58,8 +59,8 @@ static const CGFloat kButtonHeight = 40.0;
 - (void)addBotWithLogTaskButtonPressed
 {
     Bot *bot = [Bot new];
-    [bot addTask:[LogTask new]];
     [bot addTask:[ApproveFriendRequestTask new]];
+    [bot addTask:[EchoTask new]];
 
     NSLog(@"----- %@", bot.userAddress);
 
