@@ -9,7 +9,7 @@
 #import "BotManager.h"
 #import "Bot.h"
 
-@interface BotManager()
+@interface BotManager ()
 
 @property (assign, atomic) BOOL isRunning;
 

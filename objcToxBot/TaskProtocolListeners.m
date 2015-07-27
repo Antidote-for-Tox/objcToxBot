@@ -14,7 +14,7 @@
     __unused NSUInteger argumentCount = 0;
 
 #define ADD_ARGUMENT(arg) \
-    [invocation setArgument:&arg atIndex:argumentCount++];
+    [invocation setArgument : &arg atIndex : argumentCount++];
 
 @interface TaskProtocolListeners ()
 
