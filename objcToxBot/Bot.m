@@ -9,6 +9,7 @@
 #import <objcTox/OCTManager.h>
 #import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTDefaultFileStorage.h>
+#import <objcTox/OCTTox.h>
 
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
@@ -38,6 +39,7 @@
     _listeners = [TaskProtocolListeners new];
 
     [self createManager];
+    [self configureUser];
     [self bootstrap];
 
     return self;
@@ -93,6 +95,12 @@
     }
 
     return [[OCTDefaultFileStorage alloc] initWithBaseDirectory:path temporaryDirectory:NSTemporaryDirectory()];
+}
+
+- (void)configureUser
+{
+    [self.manager.user setUserName:[NSString stringWithFormat:@"objcToxBot %@", self.botIdentifier] error:nil];
+    [self.manager.user setUserStatusMessage:[NSString stringWithFormat:@"Toxcore version %@", [OCTTox version]] error:nil];
 }
 
 - (void)bootstrap
