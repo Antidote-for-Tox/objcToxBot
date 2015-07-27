@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objcTox/OCTToxConstants.h>
 
 @protocol TaskProtocol;
 
 @interface Bot : NSObject
 
 @property (strong, nonatomic, readonly) NSString *botIdentifier;
+
+- (OCTToxConnectionStatus)connectionStatus;
+- (NSString *)userAddress;
+- (NSString *)userName;
+- (NSString *)userStatusMessage;
 
 - (void)addTask:(id<TaskProtocol>)task;
 

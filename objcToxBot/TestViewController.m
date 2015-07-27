@@ -61,6 +61,8 @@ static const CGFloat kButtonHeight = 40.0;
     [bot addTask:[LogTask new]];
     [bot addTask:[ApproveFriendRequestTask new]];
 
+    NSLog(@"----- %@", bot.userAddress);
+
     [self.botManager addBot:bot];
 }
 

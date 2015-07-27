@@ -47,6 +47,26 @@
 
 #pragma mark -  Public
 
+- (OCTToxConnectionStatus)connectionStatus
+{
+    return self.manager.user.connectionStatus;
+}
+
+- (NSString *)userAddress
+{
+    return self.manager.user.userAddress;
+}
+
+- (NSString *)userName
+{
+    return self.manager.user.userName;
+}
+
+- (NSString *)userStatusMessage
+{
+    return self.manager.user.userStatusMessage;
+}
+
 - (void)addTask:(id<TaskProtocol>)task
 {
     if ([task respondsToSelector:@selector(configureWithManager:)]) {
