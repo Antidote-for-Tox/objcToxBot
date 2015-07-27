@@ -47,6 +47,7 @@
 
 - (void)addTask:(id<TaskProtocol>)task
 {
+    task.manager = self.manager;
     [self.listeners addListener:task];
 }
 
