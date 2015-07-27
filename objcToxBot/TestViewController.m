@@ -14,6 +14,7 @@
 #import "BotManager.h"
 #import "Bot.h"
 #import "LogTask.h"
+#import "ApproveFriendRequestTask.h"
 
 static const CGFloat kButtonWidth = 220.0;
 static const CGFloat kButtonHeight = 40.0;
@@ -58,6 +59,7 @@ static const CGFloat kButtonHeight = 40.0;
 {
     Bot *bot = [Bot new];
     [bot addTask:[LogTask new]];
+    [bot addTask:[ApproveFriendRequestTask new]];
 
     [self.botManager addBot:bot];
 }

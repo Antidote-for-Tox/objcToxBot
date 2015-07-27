@@ -24,7 +24,6 @@
 @end
 
 @implementation TaskProtocolListeners
-@synthesize manager = _manager;
 
 #pragma mark -  Lifecycle
 

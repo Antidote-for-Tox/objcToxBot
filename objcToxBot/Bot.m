@@ -49,7 +49,10 @@
 
 - (void)addTask:(id<TaskProtocol>)task
 {
-    task.manager = self.manager;
+    if ([task respondsToSelector:@selector(configureWithManager:)]) {
+        [task configureWithManager:self.manager];
+    }
+
     [self.listeners addListener:task];
 }
 

@@ -1,5 +1,5 @@
 //
-//  LogTask.h
+//  ApproveFriendRequestTask.h
 //  objcToxBot
 //
 //  Created by Dmytro Vorobiov on 27/07/15.
@@ -10,8 +10,8 @@
 #import "TaskProtocol.h"
 
 /**
- * Simple task that logs itself on execute method.
+ * Task that approves all incoming friend requests.
  */
-@interface LogTask : NSObject <TaskProtocol>
+@interface ApproveFriendRequestTask : NSObject <TaskProtocol>
 
 @end

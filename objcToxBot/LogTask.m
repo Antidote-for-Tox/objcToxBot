@@ -9,7 +9,6 @@
 #import "LogTask.h"
 
 @implementation LogTask
-@synthesize manager = _manager;
 
 - (void)execute
 {

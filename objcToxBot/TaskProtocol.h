@@ -13,9 +13,17 @@
 
 @protocol TaskProtocol <NSObject>
 
-@property (weak, nonatomic) OCTManager *manager;
-
 @optional
+
+#pragma mark -  Called once
+
+/**
+ * This method will be called only once after adding task to bot.
+ */
+- (void)configureWithManager:(OCTManager *)manager;
+
+#pragma mark -  Called multiple times
+
 /**
  * Run next iteration for the task.
  */
