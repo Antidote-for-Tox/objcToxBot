@@ -1,5 +1,5 @@
 //
-//  TestViewController.h
+//  CreateBotViewController.h
 //  objcToxBot
 //
 //  Created by Dmytro Vorobiov on 27/07/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestViewController : UIViewController
+@interface CreateBotViewController : UIViewController
 
 @end

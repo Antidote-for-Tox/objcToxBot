@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "TestViewController.h"
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
+#import "CreateBotViewController.h"
+#import "StatsViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,8 +23,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [TestViewController new];
     [self.window makeKeyAndVisible];
+
+    UITabBarController *tabBar = [UITabBarController new];
+    tabBar.viewControllers = @[
+        [CreateBotViewController new],
+        [StatsViewController new],
+    ];
+    self.window.rootViewController = tabBar;
 
     [self configureLogging];
 
