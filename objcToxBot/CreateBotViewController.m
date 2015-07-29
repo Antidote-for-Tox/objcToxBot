@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
+#import <BlocksKit/NSArray+BlocksKit.h>
 #import <Masonry/Masonry.h>
 
 #import "CreateBotViewController.h"
@@ -15,6 +16,7 @@
 #import "EchoTask.h"
 #import "LogTask.h"
 #import "PingTask.h"
+#import "UserDefaultsManager.h"
 
 static NSString *const kSelectTaskReuseIdentifier = @"kSelectTaskReuseIdentifier";
 
@@ -50,7 +52,15 @@ static const CGFloat kButtonHeight = 40.0;
         [LogTask class],
         [PingTask class],
     ];
-    _selectedTaskClassPathes = [NSMutableArray new];
+
+    NSArray *pathes = [[AppContext sharedContext].userDefaults.uSelectedTaskClassPathes bk_map:^id (NSNumber *number) {
+        return [NSIndexPath indexPathForRow:number.integerValue inSection:0];
+    }];
+    if ([pathes bk_any:^BOOL (NSIndexPath *path) { return path.row >= _taskClasses.count; }]) {
+        pathes = @[];
+    }
+
+    _selectedTaskClassPathes = [NSMutableArray arrayWithArray:pathes];
 
     return self;
 }
@@ -116,6 +126,11 @@ static const CGFloat kButtonHeight = 40.0;
         else {
             [self.selectedTaskClassPathes addObject:indexPath];
         }
+
+        [AppContext sharedContext].userDefaults.uSelectedTaskClassPathes =
+            [self.selectedTaskClassPathes bk_map:^id (NSIndexPath *path) {
+            return @(path.row);
+        }];
 
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }

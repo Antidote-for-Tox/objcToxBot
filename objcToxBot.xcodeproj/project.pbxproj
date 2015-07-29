@@ -19,6 +19,7 @@
 		11E366481B66BAE600E7E8D2 /* CreateBotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366471B66BAE600E7E8D2 /* CreateBotViewController.m */; };
 		11E3664B1B66BB9100E7E8D2 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3664A1B66BB9100E7E8D2 /* StatsViewController.m */; };
 		11E3664E1B66BDA900E7E8D2 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3664D1B66BDA900E7E8D2 /* AppContext.m */; };
+		11E366521B692A3300E7E8D2 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366511B692A3300E7E8D2 /* UserDefaultsManager.m */; };
 		11E9749C1B661177007017DF /* Bot.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749B1B661177007017DF /* Bot.m */; };
 		11E9749F1B66117D007017DF /* BotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749E1B66117D007017DF /* BotManager.m */; };
 		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
@@ -61,6 +62,8 @@
 		11E3664C1B66BDA900E7E8D2 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
 		11E3664D1B66BDA900E7E8D2 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
 		11E3664F1B66D0B900E7E8D2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		11E366501B692A3300E7E8D2 /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
+		11E366511B692A3300E7E8D2 /* UserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsManager.m; sourceTree = "<group>"; };
 		11E9749A1B661177007017DF /* Bot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bot.h; sourceTree = "<group>"; };
 		11E9749B1B661177007017DF /* Bot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bot.m; sourceTree = "<group>"; };
 		11E9749D1B66117D007017DF /* BotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotManager.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				11E974A51B661C5F007017DF /* TaskProtocolListeners.h */,
 				11E974A61B661C5F007017DF /* TaskProtocolListeners.m */,
 				11E974A41B661C35007017DF /* Tasks */,
+				11E366501B692A3300E7E8D2 /* UserDefaultsManager.h */,
+				11E366511B692A3300E7E8D2 /* UserDefaultsManager.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				116626261B654B080036ABC2 /* main.m in Sources */,
 				11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */,
 				11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */,
+				11E366521B692A3300E7E8D2 /* UserDefaultsManager.m in Sources */,
 				11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */,
 				11E366451B66B57500E7E8D2 /* PingTask.m in Sources */,
 				11E9749F1B66117D007017DF /* BotManager.m in Sources */,

@@ -8,10 +8,12 @@
 
 #import "AppContext.h"
 #import "BotManager.h"
+#import "UserDefaultsManager.h"
 
 @interface AppContext ()
 
 @property (strong, nonatomic) BotManager *botManager;
+@property (strong, nonatomic) UserDefaultsManager *userDefaults;
 
 @end
 
@@ -34,6 +36,8 @@
 
     _botManager = [BotManager new];
     [_botManager start];
+
+    _userDefaults = [UserDefaultsManager new];
 
     return self;
 }

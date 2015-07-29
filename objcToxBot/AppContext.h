@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class BotManager;
+@class UserDefaultsManager;
 
 @interface AppContext : NSObject
 
 + (instancetype)sharedContext;
 
 @property (strong, nonatomic, readonly) BotManager *botManager;
+@property (strong, nonatomic, readonly) UserDefaultsManager *userDefaults;
 
 @end
