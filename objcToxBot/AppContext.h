@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const kBotNamePrefix;
+
 @class BotManager;
 @class UserDefaultsManager;
 
@@ -17,5 +19,7 @@
 
 @property (strong, nonatomic, readonly) BotManager *botManager;
 @property (strong, nonatomic, readonly) UserDefaultsManager *userDefaults;
+
+- (NSString *)botsPath;
 
 @end

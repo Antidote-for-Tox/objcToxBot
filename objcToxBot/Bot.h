@@ -15,6 +15,9 @@
 
 @property (strong, nonatomic, readonly) NSString *botIdentifier;
 
+- (instancetype)init;
+- (instancetype)initWithBotIdentifier:(NSString *)botIdentifier;
+
 - (OCTToxConnectionStatus)connectionStatus;
 - (NSString *)userAddress;
 - (NSString *)userName;

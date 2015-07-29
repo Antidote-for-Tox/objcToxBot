@@ -12,6 +12,8 @@
 
 @interface BotManager : NSObject
 
+- (NSSet *)bots;
+
 - (void)addBot:(Bot *)bot;
 
 - (void)start;

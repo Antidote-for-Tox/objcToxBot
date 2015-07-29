@@ -8,7 +8,6 @@
 
 #import <BlocksKit/NSArray+BlocksKit.h>
 #import <Masonry/Masonry.h>
-#import <CWStatusBarNotification/CWStatusBarNotification.h>
 
 #import "CreateBotViewController.h"
 #import "BotManager.h"
@@ -94,9 +93,6 @@ static const CGFloat kButtonHeight = 40.0;
     }
 
     [[AppContext sharedContext].botManager addBot:bot];
-
-    CWStatusBarNotification *notification = [CWStatusBarNotification new];
-    [notification displayNotificationWithMessage:NSLocalizedString(@"Bot created!", @"Create Bot") forDuration:2.0f];
 }
 
 #pragma mark -  UITableViewDataSource

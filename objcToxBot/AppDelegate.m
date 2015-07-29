@@ -10,7 +10,8 @@
 #import "DDASLLogger.h"
 #import "DDTTYLogger.h"
 #import "CreateBotViewController.h"
-#import "StatsViewController.h"
+#import "ExistingViewController.h"
+#import "RunningViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,7 +32,8 @@
     tabBar.tabBar.translucent = NO;
     tabBar.viewControllers = @[
         [CreateBotViewController new],
-        [StatsViewController new],
+        [ExistingViewController new],
+        [RunningViewController new],
     ];
     self.window.rootViewController = tabBar;
 

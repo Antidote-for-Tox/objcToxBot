@@ -29,13 +29,20 @@
 
 - (instancetype)init
 {
+    NSString *botIdentifier = [kBotNamePrefix stringByAppendingString:[[NSUUID UUID] UUIDString]];
+
+    return [self initWithBotIdentifier:botIdentifier];
+}
+
+- (instancetype)initWithBotIdentifier:(NSString *)botIdentifier
+{
     self = [super init];
 
     if (! self) {
         return nil;
     }
 
-    _botIdentifier = [[NSUUID UUID] UUIDString];
+    _botIdentifier = botIdentifier;
     _listeners = [TaskProtocolListeners new];
 
     [self createManager];
@@ -102,14 +109,12 @@
 
 - (id<OCTSettingsStorageProtocol>)settingsStorage
 {
-    NSString *key = [NSString stringWithFormat:@"bot/%@", self.botIdentifier];
-    return [[OCTDefaultSettingsStorage alloc] initWithUserDefaultsKey:key];
+    return [[OCTDefaultSettingsStorage alloc] initWithUserDefaultsKey:self.botIdentifier];
 }
 
 - (id<OCTFileStorageProtocol>)fileStorage
 {
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    path = [[path stringByAppendingPathComponent:@"bots"] stringByAppendingPathComponent:self.botIdentifier];
+    NSString *path = [[[AppContext sharedContext] botsPath] stringByAppendingPathComponent:self.botIdentifier];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
 

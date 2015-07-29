@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <CWStatusBarNotification/CWStatusBarNotification.h>
+
 #import "BotManager.h"
 #import "Bot.h"
 
 static const NSTimeInterval kTickInterval = 1.0;
+static const NSTimeInterval kNotificationDuration = 2.0;
 
 @interface BotManager ()
 
@@ -40,6 +44,13 @@ static const NSTimeInterval kTickInterval = 1.0;
 
 #pragma mark -  Public
 
+- (NSSet *)bots
+{
+    @synchronized(self.botsLock) {
+        return [self.botsSet copy];
+    }
+}
+
 - (void)addBot:(Bot *)bot
 {
     NSParameterAssert(bot);
@@ -47,6 +58,11 @@ static const NSTimeInterval kTickInterval = 1.0;
     @synchronized(self.botsLock) {
         [self.botsSet addObject:bot];
     }
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Bot created! %@", @"Create Bot"),
+                         bot.botIdentifier];
+
+    CWStatusBarNotification *notification = [CWStatusBarNotification new];
+    [notification displayNotificationWithMessage:message forDuration:kNotificationDuration];
 }
 
 - (void)start

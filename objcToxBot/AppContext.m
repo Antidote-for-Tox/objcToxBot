@@ -10,6 +10,8 @@
 #import "BotManager.h"
 #import "UserDefaultsManager.h"
 
+NSString *const kBotNamePrefix = @"bot-";
+
 @interface AppContext ()
 
 @property (strong, nonatomic) BotManager *botManager;
@@ -52,6 +54,27 @@
     });
 
     return instance;
+}
+
+#pragma mark -  Public
+
+- (NSString *)botsPath
+{
+    static NSString *path;
+    static dispatch_once_t token;
+
+    dispatch_once(&token, ^{
+        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        path = [path stringByAppendingPathComponent:@"bots"];
+
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+
+        if (! [fileManager fileExistsAtPath:path isDirectory:NULL]) {
+            [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+    });
+
+    return path;
 }
 
 @end
