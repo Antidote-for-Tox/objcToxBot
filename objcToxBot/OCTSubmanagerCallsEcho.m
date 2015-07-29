@@ -26,4 +26,21 @@
     [toxAV sendAudioFrame:pcm sampleCount:sampleCount channels:channels sampleRate:sampleRate toFriend:friendNumber error:nil];
 }
 
+- (void)                 toxAV:(OCTToxAV *)toxAV
+    receiveVideoFrameWithWidth:(OCTToxAVVideoWidth)width height:(OCTToxAVVideoHeight)height
+                        yPlane:(OCTToxAVPlaneData *)yPlane uPlane:(OCTToxAVPlaneData *)uPlane
+                        vPlane:(OCTToxAVPlaneData *)vPlane
+                       yStride:(OCTToxAVStrideData)yStride uStride:(OCTToxAVStrideData)uStride
+                       vStride:(OCTToxAVStrideData)vStride
+                  friendNumber:(OCTToxFriendNumber)friendNumber
+{
+    [toxAV sendVideoFrametoFriend:friendNumber
+                            width:width
+                           height:height
+                           yPlane:yPlane
+                           uPlane:uPlane
+                           vPlane:vPlane
+                            error:nil];
+}
+
 @end
