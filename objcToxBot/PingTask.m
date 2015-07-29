@@ -28,6 +28,16 @@
     self.lastPingDate = [NSDate dateWithTimeIntervalSince1970:0];
 }
 
+- (NSString *)saveToString
+{
+    return [NSString stringWithFormat:@"%f", self.pingTimeInterval];
+}
+
+- (void)loadFromString:(NSString *)saveString
+{
+    self.pingTimeInterval = [saveString floatValue];
+}
+
 - (void)execute
 {
     if (self.pingTimeInterval <= 0.0) {

@@ -14,6 +14,10 @@
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
 
+static NSString *const kTaskSaveSuffix = @"-tasks";
+static NSString *const kTaskClassName = @"kTaskClassName";
+static NSString *const kTaskSaveString = @"kTaskSaveString";
+
 @interface Bot () <OCTSubmanagerUserDelegate>
 
 @property (strong, nonatomic) NSString *botIdentifier;
@@ -48,6 +52,7 @@
     [self createManager];
     [self configureUser];
     [self bootstrap];
+    [self loadSavedTasks];
 
     return self;
 }
@@ -76,11 +81,7 @@
 
 - (void)addTask:(id<TaskProtocol>)task
 {
-    if ([task respondsToSelector:@selector(configureWithManager:)]) {
-        [task configureWithManager:self.manager];
-    }
-
-    [self.listeners addListener:task];
+    [self addTask:task save:YES];
 }
 
 - (void)execute
@@ -147,6 +148,55 @@
                                port:33445
                           publicKey:@"F404ABAA1C99A9D37D61AB54898F56793E1DEF8BD46B1038B9D822E8460FAB67"
                               error:nil];
+}
+
+- (void)loadSavedTasks
+{
+    NSString *key = [self.botIdentifier stringByAppendingString:kTaskSaveSuffix];
+    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+
+    if (! array) {
+        return;
+    }
+
+    for (NSDictionary *dict in array) {
+        Class class = NSClassFromString(dict[kTaskClassName]);
+        NSString *saveString = dict[kTaskSaveString];
+
+        id<TaskProtocol> task = [class new];
+
+        if (saveString && [task respondsToSelector:@selector(loadFromString:)]) {
+            [task loadFromString:saveString];
+        }
+
+        [self addTask:task save:NO];
+    }
+}
+
+- (void)addTask:(id<TaskProtocol>)task save:(BOOL)save
+{
+    if ([task respondsToSelector:@selector(configureWithManager:)]) {
+        [task configureWithManager:self.manager];
+    }
+
+    [self.listeners addListener:task];
+
+    if (! save) {
+        return;
+    }
+
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    dictionary[kTaskClassName] = NSStringFromClass([task class]);
+
+    if ([task respondsToSelector:@selector(saveToString)]) {
+        dictionary[kTaskSaveString] = [task saveToString];
+    }
+
+    NSString *key = [self.botIdentifier stringByAppendingString:kTaskSaveSuffix];
+    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:key] ?: @[];
+
+    array = [array arrayByAddingObject:[dictionary copy]];
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:key];
 }
 
 @end

@@ -15,14 +15,13 @@
 
 @optional
 
-#pragma mark -  Called once
-
-/**
- * This method will be called only once after adding task to bot.
- */
 - (void)configureWithManager:(OCTManager *)manager;
 
-#pragma mark -  Called multiple times
+/**
+ * Implement following methods to add ability to save/load task from/to string.
+ */
+- (NSString *)saveToString;
+- (void)loadFromString:(NSString *)saveString;
 
 /**
  * Run next iteration for the task.
