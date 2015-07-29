@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
-#import <objcTox/OCTManager.h>
+#import "OCTManager+Modified.h"
+#import "OCTSubmanagerCallsEcho.h"
+#import "OCTSubmanagerCalls+Modified.h"
 #import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTDefaultFileStorage.h>
 #import <objcTox/OCTTox.h>
+#import <objcTox/OCTToxAV.h>
 
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
@@ -106,6 +109,11 @@ static NSString *const kTaskSaveString = @"kTaskSaveString";
 
     self.manager = [[OCTManager alloc] initWithConfiguration:configuration];
     self.manager.user.delegate = self;
+
+    OCTToxAV *toxAV = self.manager.calls.toxAV;
+    self.manager.calls = [OCTSubmanagerCallsEcho new];
+    self.manager.calls.toxAV = toxAV;
+    toxAV.delegate = self.manager.calls;
 }
 
 - (id<OCTSettingsStorageProtocol>)settingsStorage

@@ -26,6 +26,7 @@
 		11E9749F1B66117D007017DF /* BotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E9749E1B66117D007017DF /* BotManager.m */; };
 		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
 		9FDD7B4A973D8A99FF7281D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 476C6BA23F4D549EC715CAA1 /* libPods.a */; };
+		F013C97E1B69832900725D0A /* OCTSubmanagerCallsEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = F013C97D1B69832900725D0A /* OCTSubmanagerCallsEcho.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,10 @@
 		476C6BA23F4D549EC715CAA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E25AAAFF82D9B4E4A868CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B8364E7887EAA12890429EA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F013C97C1B69832900725D0A /* OCTSubmanagerCallsEcho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTSubmanagerCallsEcho.h; sourceTree = "<group>"; };
+		F013C97D1B69832900725D0A /* OCTSubmanagerCallsEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTSubmanagerCallsEcho.m; sourceTree = "<group>"; };
+		F013C9851B69933E00725D0A /* OCTManager+Modified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCTManager+Modified.h"; sourceTree = "<group>"; };
+		F013C9861B69945400725D0A /* OCTSubmanagerCalls+Modified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCTSubmanagerCalls+Modified.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,8 @@
 		116626221B654B080036ABC2 /* objcToxBot */ = {
 			isa = PBXGroup;
 			children = (
+				F013C97B1B6982FE00725D0A /* Submanager */,
+				F0ADFC691B697CE5001D67BC /* Categories */,
 				116626271B654B080036ABC2 /* AppDelegate.h */,
 				116626281B654B080036ABC2 /* AppDelegate.m */,
 				11E366361B66694C00E7E8D2 /* Controllers */,
@@ -234,6 +241,24 @@
 				B2E25AAAFF82D9B4E4A868CA /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F013C97B1B6982FE00725D0A /* Submanager */ = {
+			isa = PBXGroup;
+			children = (
+				F013C97C1B69832900725D0A /* OCTSubmanagerCallsEcho.h */,
+				F013C97D1B69832900725D0A /* OCTSubmanagerCallsEcho.m */,
+			);
+			name = Submanager;
+			sourceTree = "<group>";
+		};
+		F0ADFC691B697CE5001D67BC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F013C9851B69933E00725D0A /* OCTManager+Modified.h */,
+				F013C9861B69945400725D0A /* OCTSubmanagerCalls+Modified.h */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +407,7 @@
 				11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */,
 				11E3665F1B693F6100E7E8D2 /* RunningBotCell.m in Sources */,
 				11E366451B66B57500E7E8D2 /* PingTask.m in Sources */,
+				F013C97E1B69832900725D0A /* OCTSubmanagerCallsEcho.m in Sources */,
 				11E366581B692E5800E7E8D2 /* RunningViewController.m in Sources */,
 				11E9749F1B66117D007017DF /* BotManager.m in Sources */,
 				11E366551B692E5300E7E8D2 /* ExistingViewController.m in Sources */,
