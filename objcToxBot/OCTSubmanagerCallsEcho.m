@@ -75,9 +75,6 @@
         self.sizeOfYLumaPlanes = sizeOfYPlane;
     }
 
-    /**
-     * Deinterleaved the UV planes and place them to in the reusable arrays
-     */
     uint8_t *uSource = (uint8_t *)uPlane;
     uint8_t *vSource = (uint8_t *)vPlane;
     uint8_t *uDestination = self.uChromaPlane;
@@ -92,7 +89,7 @@
         yDestination += width;
 
 
-        for (size_t pixelWidth = 0; pixelWidth < width; pixelWidth++) {
+        for (size_t pixelWidth = 0; pixelWidth < width / 2; pixelWidth++) {
             uDestination[pixelWidth] = uSource[pixelWidth];
             vDestination[pixelWidth] = vSource[pixelWidth];
         }
