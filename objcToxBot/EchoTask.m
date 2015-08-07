@@ -53,6 +53,14 @@
         return;
     }
 
+    if ([message.messageText.text isEqualToString:@"audio"]) {
+        [self performSelector:@selector(callAudio:) withObject:message afterDelay:0];
+    }
+
+    if ([message.messageText.text isEqualToString:@"video"]) {
+        [self performSelector:@selector(callVideo:) withObject:message afterDelay:0];
+    }
+
     // workaround for deadlock in objcTox https://github.com/Antidote-for-Tox/objcTox/issues/51
     [self performSelector:@selector(sendMessageBack:) withObject:message afterDelay:0];
 }
@@ -70,6 +78,22 @@
 
     if (! sentMessage) {
         NSLog(@"%@ error %@", self, error);
+    }
+}
+
+- (void)callAudio:(OCTMessageAbstract *)message
+{
+    NSError *error;
+    if (! [self.manager.calls callToChat:message.chat enableAudio:YES enableVideo:NO error:&error]) {
+        NSLog(@"error :%@", error);
+    }
+}
+
+- (void)callVideo:(OCTMessageAbstract *)message
+{
+    NSError *error;
+    if (! [self.manager.calls callToChat:message.chat enableAudio:YES enableVideo:YES error:&error]) {
+        NSLog(@"error :%@", error);
     }
 }
 
