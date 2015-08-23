@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
-#import <objcTox/OCTManager.h>
-#import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTDefaultFileStorage.h>
+#import <objcTox/OCTDefaultSettingsStorage.h>
+#import <objcTox/OCTManager.h>
+#import <objcTox/OCTSubmanagerUser.h>
+#import <objcTox/OCTManagerConfiguration.h>
 #import <objcTox/OCTTox.h>
 
 #import "Bot.h"
