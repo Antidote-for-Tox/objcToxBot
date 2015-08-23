@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/Antidote-for-Tox/objcToxBot/master.svg?style=flat)](https://travis-ci.org/Antidote-for-Tox/objcToxBot)
+[![Circle CI](https://circleci.com/gh/Antidote-for-Tox/objcToxBot.svg?style=svg)](https://circleci.com/gh/Antidote-for-Tox/objcToxBot)
 
 # objcToxBot
 
