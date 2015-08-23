@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
+#import <objcTox/OCTManager.h>
+#import <objcTox/OCTMessageAbstract.h>
+#import <objcTox/OCTMessageText.h>
+#import <objcTox/OCTSubmanagerCalls.h>
+#import <objcTox/OCTSubmanagerChats.h>
+#import <objcTox/OCTSubmanagerObjects.h>
+
 #import "EchoTask.h"
-#import "OCTManager.h"
-#import "OCTMessageAbstract.h"
-#import "OCTMessageText.h"
 #import "RBQFetchedResultsController.h"
 
 @interface EchoTask () <RBQFetchedResultsControllerDelegate>
@@ -40,10 +44,10 @@
 - (void) controller:(RBQFetchedResultsController *)controller
     didChangeObject:(RBQSafeRealmObject *)anObject
         atIndexPath:(NSIndexPath *)indexPath
-      forChangeType:(NSFetchedResultsChangeType)type
+      forChangeType:(RBQFetchedResultsChangeType)type
        newIndexPath:(NSIndexPath *)newIndexPath
 {
-    if (type != NSFetchedResultsChangeInsert) {
+    if (type != RBQFetchedResultsChangeInsert) {
         return;
     }
 

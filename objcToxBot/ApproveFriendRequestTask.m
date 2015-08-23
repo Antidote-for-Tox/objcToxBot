@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
+#import <objcTox/OCTFriendRequest.h>
+#import <objcTox/OCTManager.h>
+#import <objcTox/OCTSubmanagerFriends.h>
+#import <objcTox/OCTSubmanagerObjects.h>
+
 #import "ApproveFriendRequestTask.h"
-#import "OCTManager.h"
 #import "RBQFetchedResultsController.h"
 
 @interface ApproveFriendRequestTask () <RBQFetchedResultsControllerDelegate>
@@ -38,10 +42,10 @@
 - (void) controller:(RBQFetchedResultsController *)controller
     didChangeObject:(RBQSafeRealmObject *)anObject
         atIndexPath:(NSIndexPath *)indexPath
-      forChangeType:(NSFetchedResultsChangeType)type
+      forChangeType:(RBQFetchedResultsChangeType)type
        newIndexPath:(NSIndexPath *)newIndexPath
 {
-    if (type != NSFetchedResultsChangeInsert) {
+    if (type != RBQFetchedResultsChangeInsert) {
         return;
     }
 

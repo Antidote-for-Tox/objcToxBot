@@ -7,7 +7,9 @@
 //
 
 #import <objcTox/OCTManager.h>
-#import <RBQFetchedResultsController/RBQFetchRequest.h>
+#import <objcTox/OCTSubmanagerChats.h>
+#import <objcTox/OCTSubmanagerObjects.h>
+#import <objcTox/RBQFetchRequest.h>
 
 #import "PingTask.h"
 

@@ -6,16 +6,19 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
-#import "OCTManager+Modified.h"
-#import "OCTSubmanagerCallsEcho.h"
-#import "OCTSubmanagerCalls+Modified.h"
-#import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTDefaultFileStorage.h>
+#import <objcTox/OCTDefaultSettingsStorage.h>
+#import <objcTox/OCTManager.h>
+#import <objcTox/OCTManagerConfiguration.h>
+#import <objcTox/OCTSubmanagerUser.h>
 #import <objcTox/OCTTox.h>
 #import <objcTox/OCTToxAV.h>
 
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
+#import "OCTManager+Modified.h"
+#import "OCTSubmanagerCalls+Modified.h"
+#import "OCTSubmanagerCallsEcho.h"
 
 static NSString *const kTaskSaveSuffix = @"-tasks";
 static NSString *const kTaskClassName = @"kTaskClassName";
