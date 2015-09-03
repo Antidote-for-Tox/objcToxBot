@@ -101,13 +101,6 @@ static NSString *const kRunningBotCellIdentifier = @"kRunningBotCellIdentifier";
     Bot *bot = self.bots[indexPath.row];
 
     [bot didTapOnBot];
-    return;
-
-    NSString *string = [bot userAddress];
-
-    UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    pb.string = string;
-
 }
 
 #pragma mark -  Private
