@@ -61,12 +61,30 @@
     }
 }
 
+- (void)enumerateObjectsUsingBlock:(void (^)(id<TaskProtocol> listener, BOOL *stop))block
+{
+    NSParameterAssert(block);
+
+    @synchronized(self.listenersLock) {
+        [self.listenersSet enumerateObjectsUsingBlock:block];
+    }
+}
+
 #pragma mark -  TaskProtocol
 
 - (void)execute
 {
     CREATE_INVOCATION;
     [self performInvocationOnListeners:invocation];
+}
+
+- (TaskAction *)tapAction
+{
+    // Generally this is worthless method. We implement it just to not to break TaskProtocol.
+
+    CREATE_INVOCATION;
+    [self performInvocationOnListeners:invocation];
+    return nil;
 }
 
 - (void)connectionStatusUpdate:(OCTToxConnectionStatus)connectionStatus

@@ -12,6 +12,7 @@
 		116626311B654B080036ABC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116626301B654B080036ABC2 /* Images.xcassets */; };
 		116626341B654B080036ABC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116626321B654B080036ABC2 /* LaunchScreen.xib */; };
 		116626401B654B080036ABC2 /* objcToxBotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166263F1B654B080036ABC2 /* objcToxBotTests.m */; };
+		118A2C311B98E31900EB88C9 /* TaskAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 118A2C301B98E31900EB88C9 /* TaskAction.m */; };
 		11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3663B1B666D2400E7E8D2 /* LogTask.m */; };
 		11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E3663E1B669B8500E7E8D2 /* ApproveFriendRequestTask.m */; };
 		11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E366411B66B0B500E7E8D2 /* EchoTask.m */; };
@@ -49,6 +50,8 @@
 		116626391B654B080036ABC2 /* objcToxBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = objcToxBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1166263E1B654B080036ABC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1166263F1B654B080036ABC2 /* objcToxBotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objcToxBotTests.m; sourceTree = "<group>"; };
+		118A2C2F1B98E31900EB88C9 /* TaskAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskAction.h; sourceTree = "<group>"; };
+		118A2C301B98E31900EB88C9 /* TaskAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskAction.m; sourceTree = "<group>"; };
 		11E3663A1B666D2400E7E8D2 /* LogTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTask.h; sourceTree = "<group>"; };
 		11E3663B1B666D2400E7E8D2 /* LogTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTask.m; sourceTree = "<group>"; };
 		11E3663D1B669B8500E7E8D2 /* ApproveFriendRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApproveFriendRequestTask.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				11E974A31B6611A0007017DF /* TaskProtocol.h */,
 				11E974A51B661C5F007017DF /* TaskProtocolListeners.h */,
 				11E974A61B661C5F007017DF /* TaskProtocolListeners.m */,
+				118A2C2F1B98E31900EB88C9 /* TaskAction.h */,
+				118A2C301B98E31900EB88C9 /* TaskAction.m */,
 				11E974A41B661C35007017DF /* Tasks */,
 				11E366501B692A3300E7E8D2 /* UserDefaultsManager.h */,
 				11E366511B692A3300E7E8D2 /* UserDefaultsManager.m */,
@@ -378,6 +383,7 @@
 				116626261B654B080036ABC2 /* main.m in Sources */,
 				11E3663C1B666D2400E7E8D2 /* LogTask.m in Sources */,
 				11E3663F1B669B8500E7E8D2 /* ApproveFriendRequestTask.m in Sources */,
+				118A2C311B98E31900EB88C9 /* TaskAction.m in Sources */,
 				11E366521B692A3300E7E8D2 /* UserDefaultsManager.m in Sources */,
 				11E366421B66B0B500E7E8D2 /* EchoTask.m in Sources */,
 				11E3665F1B693F6100E7E8D2 /* RunningBotCell.m in Sources */,

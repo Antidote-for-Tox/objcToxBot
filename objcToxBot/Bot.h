@@ -30,4 +30,9 @@
  */
 - (void)execute;
 
+/**
+ * Bot has been tapped.
+ */
+- (void)didTapOnBot;
+
 @end
