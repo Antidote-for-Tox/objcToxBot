@@ -10,6 +10,7 @@
 #import <objcTox/OCTToxConstants.h>
 
 @class OCTManager;
+@class TaskAction;
 
 @protocol TaskProtocol <NSObject>
 
@@ -27,6 +28,11 @@
  * Run next iteration for the task.
  */
 - (void)execute;
+
+/**
+ * Action that should be executed on tap on Bot.
+ */
+- (TaskAction *)tapAction;
 
 - (void)connectionStatusUpdate:(OCTToxConnectionStatus)connectionStatus;
 

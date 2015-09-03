@@ -16,6 +16,7 @@
 #import "EchoTask.h"
 #import "LogTask.h"
 #import "PingTask.h"
+#import "CopyAddressTask.h"
 #import "UserDefaultsManager.h"
 
 static NSString *const kSelectTaskReuseIdentifier = @"kSelectTaskReuseIdentifier";
@@ -51,6 +52,7 @@ static const CGFloat kButtonHeight = 40.0;
         [EchoTask class],
         [LogTask class],
         [PingTask class],
+        [CopyAddressTask class],
     ];
 
     NSArray *pathes = [[AppContext sharedContext].userDefaults.uSelectedTaskClassPathes bk_map:^id (NSNumber *number) {

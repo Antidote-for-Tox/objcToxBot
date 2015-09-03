@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 dvor. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <CWStatusBarNotification/CWStatusBarNotification.h>
 #import <objcTox/OCTDefaultFileStorage.h>
 #import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTManager.h>
@@ -16,6 +18,10 @@
 
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
+#import "TaskAction.h"
+#import "AppDelegate.h"
+
+static const NSTimeInterval kNotificationDuration = 2.0;
 
 static NSString *const kTaskSaveSuffix = @"-tasks";
 static NSString *const kTaskClassName = @"kTaskClassName";
@@ -90,6 +96,46 @@ static NSString *const kTaskSaveString = @"kTaskSaveString";
 - (void)execute
 {
     [self.listeners execute];
+}
+
+- (void)didTapOnBot
+{
+    NSMutableArray *actions = [NSMutableArray new];
+
+    [self.listeners enumerateObjectsUsingBlock:^(id < TaskProtocol > listener, BOOL *stop) {
+        if ([listener respondsToSelector:@selector(tapAction)]) {
+            [actions addObject:[listener tapAction]];
+        }
+    }];
+
+    if (! actions.count) {
+        // nothing to do here
+        return;
+    }
+
+    if (actions.count == 1) {
+        [self runAction:[actions firstObject]];
+        return;
+    }
+
+    // multiple actions
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Select action", @"Bot")
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    for (TaskAction *ta in actions) {
+        [alert addAction:[UIAlertAction actionWithTitle:ta.name style:UIAlertActionStyleDefault handler:^(UIAlertAction *_) {
+            [self runAction:ta];
+        }]];
+    }
+
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Bot")
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate.window.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark -  OCTSubmanagerUserDelegate
@@ -188,6 +234,14 @@ static NSString *const kTaskSaveString = @"kTaskSaveString";
 
     array = [array arrayByAddingObject:[dictionary copy]];
     [[NSUserDefaults standardUserDefaults] setObject:array forKey:key];
+}
+
+- (void)runAction:(TaskAction *)action
+{
+    action.action();
+
+    CWStatusBarNotification *notification = [CWStatusBarNotification new];
+    [notification displayNotificationWithMessage:action.notificationText forDuration:kNotificationDuration];
 }
 
 @end

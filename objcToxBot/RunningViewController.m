@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CWStatusBarNotification/CWStatusBarNotification.h>
 #import <Masonry/Masonry.h>
 
 #import "RunningViewController.h"
@@ -16,7 +15,6 @@
 #import "Bot.h"
 
 static NSString *const kRunningBotCellIdentifier = @"kRunningBotCellIdentifier";
-static const NSTimeInterval kNotificationDuration = 2.0;
 
 @interface RunningViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -101,15 +99,8 @@ static const NSTimeInterval kNotificationDuration = 2.0;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     Bot *bot = self.bots[indexPath.row];
-    NSString *string = [bot userAddress];
 
-    UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    pb.string = string;
-
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Copied: %@", @"Running"), string];
-
-    CWStatusBarNotification *notification = [CWStatusBarNotification new];
-    [notification displayNotificationWithMessage:message forDuration:kNotificationDuration];
+    [bot didTapOnBot];
 }
 
 #pragma mark -  Private
@@ -123,12 +114,6 @@ static const NSTimeInterval kNotificationDuration = 2.0;
     [self.view addSubview:self.tableView];
 
     [self.tableView registerClass:[RunningBotCell class] forCellReuseIdentifier:kRunningBotCellIdentifier];
-
-    UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 0.0, 30.0)];
-    header.text = NSLocalizedString(@"Tap to copy bot address", @"Running");
-    header.textAlignment = NSTextAlignmentCenter;
-    header.font = [UIFont italicSystemFontOfSize:12.0];
-    self.tableView.tableHeaderView = header;
 }
 
 - (void)installConstraints

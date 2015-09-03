@@ -20,4 +20,6 @@
 - (void)addListener:(id<TaskProtocol>)listener;
 - (void)removeListener:(id<TaskProtocol>)listener;
 
+- (void)enumerateObjectsUsingBlock:(void (^)(id<TaskProtocol> listener, BOOL *stop))block;
+
 @end
