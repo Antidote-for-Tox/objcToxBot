@@ -22,7 +22,7 @@
 
 - (void)toxAV:(OCTToxAV *)toxAV receiveCallAudioEnabled:(BOOL)audio videoEnabled:(BOOL)video friendNumber:(OCTToxFriendNumber)friendNumber
 {
-    [toxAV answerIncomingCallFromFriend:friendNumber audioBitRate:48 videoBitRate:3000 error:nil];
+    [toxAV answerIncomingCallFromFriend:friendNumber audioBitRate:48 videoBitRate:200 error:nil];
 }
 
 - (void)   toxAV:(OCTToxAV *)toxAV
