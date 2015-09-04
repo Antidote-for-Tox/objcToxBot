@@ -17,6 +17,7 @@
 #import "LogTask.h"
 #import "PingTask.h"
 #import "CopyAddressTask.h"
+#import "CallAudioTask.h"
 #import "UserDefaultsManager.h"
 
 static NSString *const kSelectTaskReuseIdentifier = @"kSelectTaskReuseIdentifier";
@@ -53,6 +54,7 @@ static const CGFloat kButtonHeight = 40.0;
         [LogTask class],
         [PingTask class],
         [CopyAddressTask class],
+        [CallAudioTask class],
     ];
 
     NSArray *pathes = [[AppContext sharedContext].userDefaults.uSelectedTaskClassPathes bk_map:^id (NSNumber *number) {
