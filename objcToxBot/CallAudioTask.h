@@ -10,6 +10,10 @@
 
 #import "TaskProtocol.h"
 
+/**
+ * This task brings up a list of online friends from
+ * which you can choose who to make an audio call.
+ */
 @interface CallAudioTask : NSObject <TaskProtocol>
 
 @end
