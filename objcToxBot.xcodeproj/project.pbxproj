@@ -29,6 +29,7 @@
 		11E974A71B661C5F007017DF /* TaskProtocolListeners.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E974A61B661C5F007017DF /* TaskProtocolListeners.m */; };
 		9FDD7B4A973D8A99FF7281D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 476C6BA23F4D549EC715CAA1 /* libPods.a */; };
 		F013C97E1B69832900725D0A /* OCTSubmanagerCallsEcho.m in Sources */ = {isa = PBXBuildFile; fileRef = F013C97D1B69832900725D0A /* OCTSubmanagerCallsEcho.m */; };
+		F0954D651B9B70470019DB95 /* OnlineFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0954D641B9B70470019DB95 /* OnlineFriendsViewController.m */; };
 		F09788FC1B9A134F00405412 /* CallAudioTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F09788FB1B9A134F00405412 /* CallAudioTask.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		F013C97D1B69832900725D0A /* OCTSubmanagerCallsEcho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTSubmanagerCallsEcho.m; sourceTree = "<group>"; };
 		F013C9851B69933E00725D0A /* OCTManager+Modified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCTManager+Modified.h"; sourceTree = "<group>"; };
 		F013C9861B69945400725D0A /* OCTSubmanagerCalls+Modified.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCTSubmanagerCalls+Modified.h"; sourceTree = "<group>"; };
+		F0954D631B9B70470019DB95 /* OnlineFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineFriendsViewController.h; sourceTree = "<group>"; };
+		F0954D641B9B70470019DB95 /* OnlineFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineFriendsViewController.m; sourceTree = "<group>"; };
 		F09788FA1B9A134F00405412 /* CallAudioTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallAudioTask.h; sourceTree = "<group>"; };
 		F09788FB1B9A134F00405412 /* CallAudioTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallAudioTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +191,8 @@
 				11E366541B692E5300E7E8D2 /* ExistingViewController.m */,
 				11E366561B692E5800E7E8D2 /* RunningViewController.h */,
 				11E366571B692E5800E7E8D2 /* RunningViewController.m */,
+				F0954D631B9B70470019DB95 /* OnlineFriendsViewController.h */,
+				F0954D641B9B70470019DB95 /* OnlineFriendsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				11E366581B692E5800E7E8D2 /* RunningViewController.m in Sources */,
 				11E9749F1B66117D007017DF /* BotManager.m in Sources */,
 				11E366551B692E5300E7E8D2 /* ExistingViewController.m in Sources */,
+				F0954D651B9B70470019DB95 /* OnlineFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
