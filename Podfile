@@ -8,5 +8,5 @@ inhibit_all_warnings!
 pod 'BlocksKit', '~> 2.2.5'
 pod 'CocoaLumberjack', '~> 1.9.2'
 pod 'Masonry', '~> 0.6.1'
-pod 'objcTox', '0.2.0'
+pod 'objcTox', '0.3.0'
 pod 'CWStatusBarNotification', '~> 2.3.1'
