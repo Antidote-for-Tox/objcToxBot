@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <CWStatusBarNotification/CWStatusBarNotification.h>
 #import <objcTox/OCTDefaultFileStorage.h>
-#import <objcTox/OCTDefaultSettingsStorage.h>
 #import <objcTox/OCTManager.h>
 #import <objcTox/OCTSubmanagerBootstrap.h>
 #import <objcTox/OCTSubmanagerUser.h>
@@ -150,16 +149,10 @@ static NSString *const kTaskSaveString = @"kTaskSaveString";
 - (void)createManager
 {
     OCTManagerConfiguration *configuration = [OCTManagerConfiguration defaultConfiguration];
-    configuration.settingsStorage = [self settingsStorage];
     configuration.fileStorage = [self fileStorage];
 
     self.manager = [[OCTManager alloc] initWithConfiguration:configuration error:nil];
     self.manager.user.delegate = self;
-}
-
-- (id<OCTSettingsStorageProtocol>)settingsStorage
-{
-    return [[OCTDefaultSettingsStorage alloc] initWithUserDefaultsKey:self.botIdentifier];
 }
 
 - (id<OCTFileStorageProtocol>)fileStorage
