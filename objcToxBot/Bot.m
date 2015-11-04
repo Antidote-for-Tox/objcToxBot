@@ -10,13 +10,17 @@
 #import <CWStatusBarNotification/CWStatusBarNotification.h>
 #import <objcTox/OCTDefaultFileStorage.h>
 #import <objcTox/OCTManager.h>
+#import <objcTox/OCTManagerConfiguration.h>
 #import <objcTox/OCTSubmanagerBootstrap.h>
 #import <objcTox/OCTSubmanagerUser.h>
-#import <objcTox/OCTManagerConfiguration.h>
 #import <objcTox/OCTTox.h>
+#import <objcTox/OCTToxAV.h>
 
 #import "Bot.h"
 #import "TaskProtocolListeners.h"
+#import "OCTManager+Modified.h"
+#import "OCTSubmanagerCalls+Modified.h"
+#import "OCTSubmanagerCallsEcho.h"
 #import "TaskAction.h"
 #import "AppDelegate.h"
 
@@ -153,6 +157,11 @@ static NSString *const kTaskSaveString = @"kTaskSaveString";
 
     self.manager = [[OCTManager alloc] initWithConfiguration:configuration error:nil];
     self.manager.user.delegate = self;
+
+    OCTToxAV *toxAV = self.manager.calls.toxAV;
+    self.manager.calls = [OCTSubmanagerCallsEcho new];
+    self.manager.calls.toxAV = toxAV;
+    toxAV.delegate = self.manager.calls;
 }
 
 - (id<OCTFileStorageProtocol>)fileStorage
