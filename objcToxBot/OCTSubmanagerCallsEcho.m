@@ -92,8 +92,8 @@
         yDestination += width;
     }
 
-    //We want to know which direction to move along the source
-    //Sometimes strides could be negative. This also assumes uStride and vStride are the same.
+    // We want to know which direction to move along the source
+    // Sometimes strides could be negative. This also assumes uStride and vStride are the same.
     size_t jumpLength = (uStride == 0) ? width / 2 : uStride;
 
     for (size_t pixelHeight = 0; pixelHeight < height / 2; pixelHeight++) {
