@@ -37,14 +37,17 @@
 
 - (void)                 toxAV:(OCTToxAV *)toxAV
     receiveVideoFrameWithWidth:(OCTToxAVVideoWidth)width height:(OCTToxAVVideoHeight)height
-                        yPlane:(OCTToxAVPlaneData *)yPlane uPlane:(OCTToxAVPlaneData *)uPlane
+                        yPlane:(OCTToxAVPlaneData *)yPlane
+                        uPlane:(OCTToxAVPlaneData *)uPlane
                         vPlane:(OCTToxAVPlaneData *)vPlane
-                       yStride:(OCTToxAVStrideData)yStride uStride:(OCTToxAVStrideData)uStride
+                       yStride:(OCTToxAVStrideData)yStride
+                       uStride:(OCTToxAVStrideData)uStride
                        vStride:(OCTToxAVStrideData)vStride
                   friendNumber:(OCTToxFriendNumber)friendNumber
 {
 
-    size_t numberOfElementsForChroma = width * height / 2;
+    size_t maxWidth = MAX(width/2, abs(vStride));
+    size_t numberOfElementsForChroma = maxWidth * (height/2);
     /**
      * Recreate the buffers if the original ones are too small
      */
@@ -58,8 +61,8 @@
             free(self.vChromaPlane);
         }
 
-        self.uChromaPlane = malloc(numberOfElementsForChroma * sizeof(uint8_t));
-        self.vChromaPlane = malloc(numberOfElementsForChroma * sizeof(uint8_t));
+        self.uChromaPlane = (uint8_t *)malloc(numberOfElementsForChroma * sizeof(uint8_t));
+        self.vChromaPlane = (uint8_t *)malloc(numberOfElementsForChroma * sizeof(uint8_t));
 
         self.sizeOfChromaPlanes = numberOfElementsForChroma;
     }
@@ -87,16 +90,21 @@
         memcpy(yDestination, ySource, width);
         ySource += yStride;
         yDestination += width;
+    }
 
+    // We want to know which direction to move along the source
+    // Sometimes strides could be negative. This also assumes uStride and vStride are the same.
+    size_t jumpLength = (uStride == 0) ? width / 2 : uStride;
 
+    for (size_t pixelHeight = 0; pixelHeight < height / 2; pixelHeight++) {
         for (size_t pixelWidth = 0; pixelWidth < width / 2; pixelWidth++) {
             uDestination[pixelWidth] = uSource[pixelWidth];
             vDestination[pixelWidth] = vSource[pixelWidth];
         }
         uDestination += width / 2;
         vDestination += width / 2;
-        uSource += uStride;
-        vSource += vStride;
+        uSource += jumpLength;
+        vSource += jumpLength;
     }
 
     [toxAV sendVideoFrametoFriend:friendNumber
